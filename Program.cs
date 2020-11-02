@@ -37,12 +37,22 @@ namespace CoreEscuela
             WriteLine($"Alumno: {objDummy.UniqueId}");
             WriteLine($"Alumno: {objDummy.GetType()}");
 
-            
-            alumnoTest = (Alumno)ob;
-            Printer.WriteTitle("Alumno");
-            WriteLine($"Alumno: {alumnoTest.Nombre}");
-            WriteLine($"Alumno: {alumnoTest.UniqueId}");
-            WriteLine($"Alumno: {alumnoTest.GetType()}");
+            var evaluación = new Evaluación() {
+              Nombre = "Evalución de matemáticas",
+              Nota = 4.5f
+            };
+
+            Printer.WriteTitle("Evaluación");
+            WriteLine($"evaluación: {evaluación.Nombre}");
+            WriteLine($"evaluación: {evaluación.UniqueId}");
+            WriteLine($"evaluación: {evaluación.Nota}");
+            WriteLine($"evaluación: {evaluación.GetType()}");
+
+            ob = evaluación;
+            Printer.WriteTitle("ObjetoEscuela");
+            WriteLine($"Alumno: {ob.Nombre}");
+            WriteLine($"Alumno: {ob.UniqueId}");
+            WriteLine($"Alumno: {ob.GetType()}");
 
         }
 
