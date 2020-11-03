@@ -12,6 +12,12 @@ namespace CoreEscuela.Entidades
             UniqueId = Guid.NewGuid().ToString();
         }//End of constructor ObjetoEscuelaBase
 
+        //Al sobreescribir el método ToString puedo debuguear más fácil.
+        public override string ToString()
+        {
+            return $"{Nombre},{UniqueId}";
+        }
+
     }//End of class ObjetoEscuelaBase
 
 }//End of namespace CoreEscuela.Entidades
