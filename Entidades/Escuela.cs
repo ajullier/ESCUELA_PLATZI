@@ -30,14 +30,17 @@ namespace CoreEscuela.Entidades
             return $"Nombre: \"{Nombre}\", Tipo: {TipoEscuela} {System.Environment.NewLine} Pais: {Pais}, Ciudad:{Ciudad}";
         }
 
-        void ILugar.LimpiarLugar()
+        public void LimpiarLugar()
         {
             Printer.DrawLine();
             Console.WriteLine("Limpiando escuela...");
+            Printer.Beep(1500, cantidad:3);
+ 
             foreach (var curso in Cursos){
                 curso.LimpiarLugar();
             }
-            Console.WriteLine($"Escuela {Nombre} está limpia");
+            Printer.WriteTitle($"Escuela {Nombre} está limpia");
+            Printer.Beep(500, cantidad:2);
         }
     }
 }
