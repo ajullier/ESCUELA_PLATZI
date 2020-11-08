@@ -16,10 +16,10 @@ namespace CoreEscuela
             Printer.WriteTitle("BIENVENIDOS A LA ESCUELA");
             //Printer.Beep(10000, cantidad: 10);
             //ImpimirCursosEscuela(engine.Escuela);
-            var listaObjetos = engine.GetObjetosEscuela();
+            var listaObjetos = engine.GetObjetosEscuela(true, false, false, false);
             //engine.Escuela.LimpiarLugar();
 
-            var listaIlugar = from obj in listaObjetos
+/*            var listaIlugar = from obj in listaObjetos
             where obj is Alumno
             select (Alumno) obj;
 
@@ -27,7 +27,7 @@ namespace CoreEscuela
             foreach (var alumno in listaIlugar){
                 contador ++;
                 Printer.WriteTitle($"{contador}-{alumno.Nombre}");   
-            }
+            }*/
         }
 
         private static void ImpimirCursosEscuela(Escuela escuela)
