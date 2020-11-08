@@ -58,6 +58,45 @@ namespace CoreEscuela
             }
         }
 
+ public List<ObjetoEscuelaBase> GetObjetosEscuela(
+        bool traeEvaluaciones = true,
+        bool traeAlumnos =  true,
+        bool traeAsignatura = true,
+        bool traeCursos = true){
+            return GetObjetosEscuela(out int dummy,out dummy,out dummy,out dummy);
+        }
+
+        public List<ObjetoEscuelaBase> GetObjetosEscuela(
+        out int conteoEvaluaciones,
+        bool traeEvaluaciones = true,
+        bool traeAlumnos =  true,
+        bool traeAsignatura = true,
+        bool traeCursos = true){
+            return GetObjetosEscuela(out conteoEvaluaciones,out int dummy,out dummy,out dummy);
+        }
+
+        public List<ObjetoEscuelaBase> GetObjetosEscuela(
+        out int conteoEvaluaciones,
+        out int conteoCursos,
+        bool traeEvaluaciones = true,
+        bool traeAlumnos =  true,
+        bool traeAsignatura = true,
+        bool traeCursos = true){
+            return GetObjetosEscuela(out conteoEvaluaciones,out conteoCursos,out int dummy,out dummy);
+        }
+
+        public List<ObjetoEscuelaBase> GetObjetosEscuela(
+        out int conteoEvaluaciones,
+        out int conteoCursos,
+        out int conteoAsignaturas,
+        bool traeEvaluaciones = true,
+        bool traeAlumnos =  true,
+        bool traeAsignatura = true,
+        bool traeCursos = true){
+            return GetObjetosEscuela(out conteoEvaluaciones,out conteoCursos, out conteoAsignaturas,out int dummy);
+        }
+
+
         public List<ObjetoEscuelaBase> GetObjetosEscuela(
         out int conteoEvaluaciones,
         out int conteoCursos,
