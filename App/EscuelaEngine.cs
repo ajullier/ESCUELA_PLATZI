@@ -59,14 +59,14 @@ namespace CoreEscuela
         }
 
         public List<ObjetoEscuelaBase> GetObjetosEscuela(
-        bool traeEvaluaciones,
-        bool traeAlumnos,
-        bool traeAsignatura,
-        bool traeCursos,
         out int conteoEvaluaciones,
         out int conteoCursos,
         out int conteoAsignaturas,
-        out int conteoAlumnos)
+        out int conteoAlumnos,
+        bool traeEvaluaciones = true,
+        bool traeAlumnos = true,
+        bool traeAsignatura = true,
+        bool traeCursos = true)
         {
             
             conteoAsignaturas = conteoAlumnos = conteoEvaluaciones = 0;
@@ -81,12 +81,16 @@ namespace CoreEscuela
 
             foreach (var curso in Escuela.Cursos)
             {
+
+
                 conteoAsignaturas += curso.Asignaturas.Count;
+                conteoAlumnos += curso.Alumnos.Count;
                                 
                 if(traeAsignatura)
                 listaObj.AddRange(curso.Asignaturas);
                 if(traeAlumnos)
                 listaObj.AddRange(curso.Alumnos);
+
 
                 if (traeEvaluaciones)
                 {
