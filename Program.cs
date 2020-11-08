@@ -15,24 +15,26 @@ namespace CoreEscuela
             engine.Inicializar();
             Printer.WriteTitle("BIENVENIDOS A LA ESCUELA");
             //Printer.Beep(10000, cantidad: 10);
-            //ImpimirCursosEscuela(engine.Escuela);
-            var listaObjetos = engine.GetObjetosEscuela(
-                out int conteoEvaluaciones,
-                out int conteoCursos,
-                out int conteoAsignaturas,
-                out int conteoAlumnos
-            );
-            //engine.Escuela.LimpiarLugar();
+            ImpimirCursosEscuela(engine.Escuela);
+            Dictionary<int, string> diccionario = new Dictionary<int, string>();
+            diccionario.Add(10, "JuanK");
+            diccionario.Add(23, "Lorem Ipsum");
 
-            /*            var listaIlugar = from obj in listaObjetos
-                        where obj is Alumno
-                        select (Alumno) obj;
+            foreach (var keyValPair in diccionario){
+                Console.WriteLine($"Key: {keyValPair.Key} Valor:{keyValPair.Value}");
+            }
 
-                        int contador = 0;
-                        foreach (var alumno in listaIlugar){
-                            contador ++;
-                            Printer.WriteTitle($"{contador}-{alumno.Nombre}");   
-                        }*/
+            Printer.WriteTitle("Acceso a Diccionario");
+            diccionario[0]= "Pekerman";
+            WriteLine(diccionario[0]);
+
+            Printer.WriteTitle("Otro Diccionario");
+            var dic = new Dictionary<string, string>();
+            dic["Luna"] = "Cuerpo celeste que gira alrededor de la Tierra.";
+            WriteLine(dic["Luna"]);
+            //Puedo reemplazar el contenido de la llave Luna de un diccionario pero no puedo adicionar.
+            dic["Luna"] = "Protagonista de Soy Luna.";
+            WriteLine(dic["Luna"]);
         }
 
         private static void ImpimirCursosEscuela(Escuela escuela)

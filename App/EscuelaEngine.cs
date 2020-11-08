@@ -17,6 +17,8 @@ namespace CoreEscuela
         }
         #endregion
 
+
+
         public void Inicializar()
         {
             Escuela = new Escuela("Platzi Academy", 2012, TiposEscuela.Primaria,
@@ -28,6 +30,8 @@ namespace CoreEscuela
             CargarEvaluaciones();
 
         }
+
+
 
         #region Métodos de carga
 
