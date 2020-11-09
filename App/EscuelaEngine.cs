@@ -53,7 +53,7 @@ namespace CoreEscuela
                             {
                                 Asignatura = asignatura,
                                 Nombre = $"{asignatura.Nombre} Ev#{i + 1}",
-                                Nota = (float)(5 * rnd.NextDouble()),
+                                Nota = (float)Math.Round((5 * rnd.NextDouble()), 2),
                                 Alumno = alumno
                             };
                             alumno.Evaluaciones.Add(ev);
@@ -66,28 +66,35 @@ namespace CoreEscuela
         public void imprimirDiccionario(Dictionary<LlaveDiccionario, IEnumerable<ObjetoEscuelaBase>> dic,
         bool imprEval = false)
         {
-            foreach (var obj in dic)
+            foreach (var objDic in dic)
             {
-                Printer.WriteTitle($"{obj.Key.ToString()}");
+                Printer.WriteTitle($"{objDic.Key.ToString()}");
 
-                foreach (var val in obj.Value)
+                foreach (var val in objDic.Value)
                 {
-                    if (val is Evaluación && imprEval == false)
-                    {
+                    switch(objDic.Key){
+                        case LlaveDiccionario.Evaluaciones:
                         if (imprEval){
                             Console.WriteLine($"Evaluación:{val}");
                         }
+                        break;
+                        case LlaveDiccionario.Alumnos:
+                            Console.WriteLine($"Alumno:{val.Nombre}");
+                        break;
+                        case LlaveDiccionario.Escuela:
+                            Console.WriteLine($"A continuación, los datos de la escuela\n{val}");
+                        break;
+                        case LlaveDiccionario.Curso:
+                            var curtmp = val as Curso;
+                            if (curtmp != null){
+                                int count = curtmp.Alumnos.Count;
+                                Console.WriteLine($"Nombre{val.Nombre}"+ " cantidad de alumnos:" + count);
+                            }
+                        break;
+                        default:
+                        Console.WriteLine($"{val}");
+                        break;
                     }
-                    else if (val is Escuela)
-                    {
-                        Console.WriteLine($"Escuela:{val}");
-                    }else if (val is Alumno)
-                    {
-                        Console.WriteLine($"Alumno:{val.Nombre}");
-                    }else{
-                        Console.WriteLine(val);
-                    }
-
                 }
             }
         }

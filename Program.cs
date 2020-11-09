@@ -15,10 +15,10 @@ namespace CoreEscuela
             engine.Inicializar();
             Printer.WriteTitle("BIENVENIDOS A LA ESCUELA");
             //Printer.Beep(10000, cantidad: 10);
-            ImpimirCursosEscuela(engine.Escuela);
+            //ImpimirCursosEscuela(engine.Escuela);
 
             var dictmp = engine.GetDiccionarioObjetos();
-            engine.imprimirDiccionario(dictmp);
+            engine.imprimirDiccionario(dictmp, true);
         }
 
         private static void ImpimirCursosEscuela(Escuela escuela)
