@@ -18,11 +18,7 @@ namespace CoreEscuela
             var engine = new EscuelaEngine();
             engine.Inicializar();
             Printer.WriteTitle("BIENVENIDOS A LA ESCUELA");
-            //Printer.Beep(10000, cantidad: 10);
-            //ImpimirCursosEscuela(engine.Escuela);
-return;
-            var dictmp = engine.GetDiccionarioObjetos();
-            engine.imprimirDiccionario(dictmp, true);
+            Reporteador.GetListaEvaluaciones(null);
         }
 
         private static void AccionDelEvento(object sender, EventArgs e)
