@@ -39,14 +39,15 @@ namespace CoreEscuela
         private void CargarEvaluaciones()
         {
             /*throw new NotImplementedException();*/
-            var lista = new List<Evaluación>();
+            //var lista = new List<Evaluación>();
+            var rnd = new Random(System.Environment.TickCount);
             foreach (var curso in Escuela.Cursos)
             {
                 foreach (var asignatura in curso.Asignaturas)
                 {
                     foreach (var alumno in curso.Alumnos)
                     {
-                        var rnd = new Random(System.Environment.TickCount);
+                        
                         for (int i = 0; i < 5; i++)
                         {
                             var ev = new Evaluación
