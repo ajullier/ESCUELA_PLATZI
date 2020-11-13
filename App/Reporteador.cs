@@ -29,5 +29,21 @@ namespace CoreEscuela
                 return new List<Evaluación>();
             }
         }
+
+        public IEnumerable<String> GetListaAsignaturas()
+        {
+            var listaEvaluaciones = GetListaEvaluaciones();
+            //POR CADA EVALUACIÓN EN LA LISTA DE EVALUACIONES SELECCIONEME LA ASIGNATURA
+            return (from Evaluación ev in listaEvaluaciones
+                    select ev.Asignatura.Nombre).Distinct();
+        }
+
+        public Dictionary<string, IEnumerable<Evaluación>> GetListaEvaluaXAsig()
+        {
+            var dictarta = new Dictionary<string, IEnumerable<Evaluación>>();
+
+            return dictarta;
+
+        }
     }
 }
