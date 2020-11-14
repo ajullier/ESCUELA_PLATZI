@@ -56,6 +56,31 @@ namespace CoreEscuela
 
             return dictaRta;
 
+        }//fin del método GetListaEvaluaXAsig
+
+        public Dictionary<string, IEnumerable<Object>> GetPromedioPorAlumnoAsignatura()
+        {
+            var rta = new Dictionary<string, IEnumerable<object>>();
+            var dicEvalXAsig = GetListaEvaluaXAsig();
+            foreach (var asigConEval in dicEvalXAsig){
+                var promsAlumn = from eval in asigConEval.Value
+                            group eval by new 
+                            {
+                                eval.Alumno.UniqueId, 
+                                eval.Alumno.Nombre
+                            }
+                            into grupoEvalsAlumno
+                            select new AlumnoPromedio 
+                            {
+                                alumnoId = grupoEvalsAlumno.Key.UniqueId,
+                                alumnoNombre = grupoEvalsAlumno.Key.Nombre,
+                                promedio = grupoEvalsAlumno.Average(evaluacion => evaluacion.Nota)
+                            };
+                rta.Add(asigConEval.Key, promsAlumn);
+            }
+
+            return rta;
         }
-    }
-}
+
+    }//fin de la clase reporteador
+}//fin del espacio nombre Core Escuela
