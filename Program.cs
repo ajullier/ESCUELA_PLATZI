@@ -67,7 +67,11 @@ namespace CoreEscuela
                     Printer.WriteTitle("El valor de la nota no es un número válido");
                     WriteLine("Saliendo del programa");
                 }
-                
+                //Se ejecuta la siguiente instrucción antes de que se termine el programa. De manera que si hay una excepción no controlada, la ejecuta.
+                finally{
+                    Printer.WriteTitle("FINALLY");
+                    Printer.Beep(2500, 500, 3);
+                }
                 
             }
 
