@@ -23,7 +23,15 @@ namespace CoreEscuela
             var listaAsg = reporteador.GetListaAsignaturas();
             var listaAsigxEval = reporteador.GetListaEvaluaXAsig();
             var listaAlumnoPromAsig = reporteador.GetPromedioPorAlumnoAsignatura();
+            var listaTopXPromAsig = reporteador.GetTopXPromedios(5);
 
+            foreach(var asig in listaTopXPromAsig){
+                foreach(AlumnoPromedio prom in asig.Value){
+                    if(asig.Key == "Castellano")
+                    WriteLine($"{asig.Key}||{prom.alumnoNombre}||{prom.promedio}");
+                }
+            }
+            
         }
 
         private static void AccionDelEvento(object sender, EventArgs e)
