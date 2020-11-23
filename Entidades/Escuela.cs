@@ -4,11 +4,10 @@ using CoreEscuela.Util;
 
 namespace CoreEscuela.Entidades
 {
-    public class Escuela : ObjetoEscuelaBase, ILugar
+    public class Escuela : ObjetoEscuelaBase
     {
         #region Propiedades
         public int AñoDeCreación { get; set; }
-
         public string Pais { get; set; }
         public string Ciudad { get; set; }
         public string Dirección { get; set; }
@@ -34,20 +33,5 @@ namespace CoreEscuela.Entidades
             return $"Nombre: \"{Nombre}\", Tipo: {TipoEscuela} {System.Environment.NewLine} Pais: {Pais}, Ciudad:{Ciudad}";
         }
         #endregion
-        #region Métodos de Interface
-        public void LimpiarLugar()
-        {
-            Printer.DrawLine();
-            Console.WriteLine("Limpiando escuela...");
-            Printer.Beep(1500, cantidad: 3);
-
-            foreach (var curso in Cursos)
-            {
-                curso.LimpiarLugar();
-            }
-            Printer.WriteTitle($"Escuela {Nombre} está limpia");
-            Printer.Beep(500, cantidad: 2);
-        }
     }
-    #endregion
 }
